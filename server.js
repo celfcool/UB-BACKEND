@@ -29,6 +29,15 @@ const upload = multer({
   limits: { fileSize: 1024 * 1024 * 5 }, // 5MB file size limit
 });
 
+// TEST //
+app.get("/test", async (req, res) => {
+  try {
+    res.json({ title: "hero.title", subtitle: "hero.subtitle" });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
 // HERO //
 app.get("/hero", async (req, res) => {
   try {
